@@ -14,11 +14,6 @@ class Config(BaseSettings):
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
 
-    EXCHANGERATES_API_KEY: str
-    EXCHANGERATES_API_URL: str
-
-    CURRENCY_UPDATE_STEP: int
-
     @property
     def POSTGRES_URL(self) -> str:
         return (
@@ -27,8 +22,6 @@ class Config(BaseSettings):
             f'{self.POSTGRES_SERVER}/'
             f'{self.POSTGRES_DB}'
         )
-
-    TEST_SQLLITE_URL: str = 'sqlite+aiosqlite:///./test.db'
 
     @property
     def ASYNC_POSTGRES_URL(self) -> str:
